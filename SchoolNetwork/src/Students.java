@@ -1,9 +1,56 @@
+import java.util.ArrayList;
+
 public class Students {
-    public Students(String studentID, String studentName, String studentAddress, String courseList) {
-        StudentID = studentID;
-        StudentName = studentName;
-        StudentAddress = studentAddress;
-        CourseList = courseList;
+    private String StudentID, StudentName, StudentAddress;
+    private ArrayList <String>  Course = new ArrayList<>();
+    private int Coursenumber = 20;
+
+    public int getCoursenumber() {
+        return Coursenumber;
+    }
+
+    public void setCoursenumber(int coursenumber) {
+        Coursenumber = coursenumber;
+    }
+
+    public Students(int coursenumber) {
+        Coursenumber = coursenumber;
+    }
+
+public void getcourselist(){
+    for(int i = 0; i < Coursenumber; i++) {
+        Course[] courseList = new Course[100];
+        System.out.println(courseList[i].getCourseName());
+    }
+
+}
+
+    public void addCourse(Course courses) {
+        for (int i = 0; i < Coursenumber; i++) {
+            Course[] courselist = new Course[100];
+            courselist[Coursenumber] = courses;
+            Coursenumber++;
+        }
+
+    }
+
+
+    public void dropCourse(String course){
+        for (int i = 0; i < Course.size(); i++) {
+
+            if (course.equalsIgnoreCase(Course.get(i))) {
+
+                Course.remove(i);
+
+            }
+
+        }
+    }
+
+    public Students(String studentID, String studentName, String studentAddress) {
+        this.StudentID = studentID;
+        this.StudentName = studentName;
+        this.StudentAddress = studentAddress;
     }
 
     public String getStudentID() {
@@ -30,13 +77,6 @@ public class Students {
         StudentAddress = studentAddress;
     }
 
-    public String getCourseList() {
-        return CourseList;
-    }
 
-    public void setCourseList(String courseList) {
-        CourseList = courseList;
-    }
 
-    private String StudentID, StudentName, StudentAddress, CourseList;
 }
